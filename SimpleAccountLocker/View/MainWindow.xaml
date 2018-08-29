@@ -1,0 +1,80 @@
+﻿<Window x:Class="SimpleAccountLocker.View.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SimpleAccountLocker"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="465" Width="800">
+    <Grid Margin="0,0,0,0.485">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="284*" />
+            <RowDefinition Height="35*"/>
+
+        </Grid.RowDefinitions>
+
+        <DataGrid ItemsSource="{Binding AccountsList}" AutoGenerateColumns="False" SelectionMode="Extended"  SelectionUnit="FullRow"
+                  CanUserDeleteRows="False"  CanUserAddRows="False"  SelectedItem="{Binding SelectedAccount, Mode=TwoWay}" Margin="0,33,0,35"
+                  >
+
+            <DataGrid.Resources>
+                <Style TargetType="DataGridRow">
+                    <Setter Property="IsSelected" Value="{Binding isSelected}" />
+                </Style>
+            </DataGrid.Resources>
+
+            <DataGrid.InputBindings>
+                <KeyBinding Key="Delete" Command="{Binding DeleteSelectedRowCommand}" />
+            </DataGrid.InputBindings>
+
+            <DataGrid.Columns>
+                <DataGridTextColumn  Header="Site" Width="*" Binding="{Binding AccountURL}">
+
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="UserName" Width="*" Binding="{Binding AccountName}" />
+                <DataGridTextColumn Header="Password" Width="*"  Binding="{Binding PasswordPlainText}" />
+
+                <!--  <DataGridTemplateColumn Header="Password" >
+                    <DataGridTemplateColumn.HeaderStyle>
+                        <Style TargetType="{x:Type DataGridColumnHeader}">
+                            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                        </Style>
+                    </DataGridTemplateColumn.HeaderStyle>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <PasswordBox  Name="PasswordBoxPass"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn> -->
+
+
+                <DataGridTextColumn Header="DateCreated" Width="*" Binding="{Binding DateCreated,  StringFormat=\{0:dd.MM.yy HH:mm:ss\}}" />
+                <DataGridTextColumn Header="LastModified" Width="*" Binding="{Binding LastModified,  StringFormat=\{0:dd.MM.yy HH:mm:ss\}}" />
+
+
+            </DataGrid.Columns>
+
+
+
+
+
+
+        </DataGrid>
+        <!--  <Button Command="{Binding AddAccountCommand}" Height="49" VerticalAlignment="Bottom" Margin="10,0,0,15" HorizontalAlignment="Left" Width="216" Content="Add Account" Grid.RowSpan="2"/>-->
+        <!--<Button Command="{Binding SaveAccountListCommand}" Height="49" VerticalAlignment="Bottom" Margin="313,0,0,15" HorizontalAlignment="Left" Width="194" Content="Save" Grid.RowSpan="2"/>-->
+        <Menu HorizontalAlignment="Left" Height="28" Margin="10,0,0,0" VerticalAlignment="Top" Width="497">
+            <MenuItem Header="_File">
+                <MenuItem Header="New" Command="{Binding NewSALFileCommand}" />
+                <MenuItem Header="Open" Command="{Binding OpenSALFileCommand}" />
+                <MenuItem Header="Save" Command="{Binding SaveSALFileCommand}" />
+                <MenuItem Header="Save As" Command="{Binding SaveNewSALFileCommand}" />
+                <Separator />
+                <MenuItem Header="_Exit" Command="{Binding ExitCommand}" />
+            </MenuItem>
+        </Menu>
+        <Button Command="{Binding LockUnlockFormCommand}" Height="49" VerticalAlignment="Bottom" Margin="597,0,0,15" HorizontalAlignment="Left" Width="185" Content="{Binding LockButtonText}" Grid.RowSpan="2"/>
+        <Button Command="{Binding NewAccountCommand}" Height="49" VerticalAlignment="Bottom" Margin="10,0,0,15" HorizontalAlignment="Left" Width="173" Content="Add Account" Grid.RowSpan="2"/>
+
+
+    </Grid>
+</Window>

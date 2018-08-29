@@ -1,0 +1,17 @@
+﻿<Window x:Class="SimpleAccountLocker.View.SettingsView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SimpleAccountLocker.View"
+        mc:Ignorable="d"
+        Title="SettingsView" Height="152.451" Width="243.657">
+    <Grid>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="146,39,0,0" VerticalAlignment="Top" Width="75"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="10,39,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <Button Command="{Binding SaveCommand}" Content="Button" HorizontalAlignment="Left" Margin="146,90,0,0" VerticalAlignment="Top" Width="75"/>
+        <Label Content="Where to save encrypted password list file?" HorizontalAlignment="Left" Margin="8,10,-28,0" VerticalAlignment="Top" Width="256" FontSize="10"/>
+        <Label Content="Important: Ensure it is saved at secure location." HorizontalAlignment="Left" Margin="8,62,0,0" VerticalAlignment="Top" Width="256" FontSize="10"/>
+
+    </Grid>
+</Window>

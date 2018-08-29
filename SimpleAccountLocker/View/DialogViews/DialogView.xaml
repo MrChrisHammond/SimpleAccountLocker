@@ -1,0 +1,17 @@
+﻿<Window x:Class="SimpleAccountLocker.View.DialogViews.DialogView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SimpleAccountLocker.View.DialogViews"
+        mc:Ignorable="d"
+        Title="DialogView" Height="160.714" Width="242.445">
+    <Grid>
+        <Button Command="{Binding SelectFileLocationCommand}" Content="Browse" HorizontalAlignment="Left" Margin="146,44,0,0" VerticalAlignment="Top" Width="75"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="10,44,0,0" TextWrapping="Wrap" Text="{Binding Path=FileLocationURI,  UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120"/>
+        <Button  Command="{Binding SaveCommand}" Content="OK" HorizontalAlignment="Left" Margin="146,100,0,0" VerticalAlignment="Top" Width="75"/>
+        <Label Content="Where to save encrypted password list file?" HorizontalAlignment="Left" Margin="6,11,-28,0" VerticalAlignment="Top" Width="256" FontSize="10"/>
+        <Label Content="Important: Ensure file is saved at a secure location." HorizontalAlignment="Left" Margin="7,67,-29,0" VerticalAlignment="Top" Width="256" FontSize="9" Foreground="Red" FontWeight="Bold"/>
+
+    </Grid>
+</Window>
